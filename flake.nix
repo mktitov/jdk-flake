@@ -50,7 +50,7 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, jdk16, jdk17, jdk18, jdk18-loom, jdk18-panama, jdk18-valhalla, zulu17_linux_tgz, zulu17_macos_tgz, zing15_linux_tgz }:
-    flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (system:
+    flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ] (system:
       let
         sources = with builtins; (fromJSON (readFile ./flake.lock)).nodes;
         pkgs = nixpkgs.legacyPackages.${system};
